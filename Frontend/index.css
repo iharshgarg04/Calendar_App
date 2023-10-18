@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@1,100&display=swap');
+
+
+*{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 20px;
+    font-size: 10px;
+    border-bottom: 0.4px solid rgb(89, 82, 82);
+}
+.header h1,h2{
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 28px;
+    color: rgb(60,64,67);
+    white-space: nowrap;
+}
+.heading{
+    display: flex;
+    width: 110px;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.heading i{
+    font-size: 28px;
+    color: rgb(24, 49, 83);
+}
+.icons{
+    display: flex;
+    width: 230px;
+    justify-content: space-between;
+    align-items: center;
+}
+a{
+    font-size: 19px;
+    color: black;
+}
+.icons i{
+    font-size: 15px;
+    cursor: pointer;
+}
+.cals{
+    display: flex;
+}
+.smallCal{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    width: 16vw;
+    height: 35vh;
+    padding: 10px 10px;
+}
+.largeCal{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: max-content;
+    width: 85vw;
+    height: 93vh;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    text-align: center;
+}
+.daysj{
+    text-align: center;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    font-size: 12px;
+    align-items: center;
+    width: 69%;
+    height: 55%;
+}
+.weekday{
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+    font-size: 13px;
+    height: 8px;
+    border-bottom: 0px;
+}
+.day{
+    min-height: 100px;
+    overflow-y: auto;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px 0px;
+    border-top: 0px;
+    font-size: 13px;
+    font-weight: normal;
+    /* cursor: pointer; */
+}
+.day:hover {
+    background-color: #f5f5f5;
+}
+.background{
+    color: white;
+    background-color: rgb(25 115 233);
+}
+
+
+/* ------------popup------------- */
+#popup,#popup4{
+    display: none;
+    position: absolute;
+    width: 23%;
+    height: 390px;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgb(192 192 192);
+    background: white;
+    transition:  0.1s ease-in;
+    z-index: 2;
+}
+#popup .addTask input,
+#popup4 .addTask input{
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 23px 0px;
+    font-size: 21px;
+}
+#popup .addTask textarea,
+#popup4 .addTask textarea{
+    font-size: 21px;
+    border: none;
+    background-color: rgb(241,243,244);
+    outline: none;
+    border-radius: 4px;
+}
+.close,.closeCreate{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgb(241,243,244);
+    height: 35px;
+}
+.close i,.closeCreate{
+    cursor: pointer;
+    margin-right: 10px ;
+}
+.addTask{
+    padding-top: 20px;
+    display: flex;
+    height: 80%;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+.addTask .input,.descrip{
+    padding: 8px 0px;
+}
+.addTask .input{
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+}
+#myInput:focus{
+    outline: none;
+    border: none;
+}
+#popup button,
+#popup4 button{
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0d0dd4e0;
+    color: white;
+    cursor: pointer;
+}
+#popup4{
+    height: 430px;
+    transform: translate(50px ,50px);
+    transition: 1s ease-in-out;
+}
+
+.descrip{
+    display: flex;
+    width: 70%;
+    justify-content: space-between ;
+}
+.descrip textarea{
+    padding: 5px 10px ;
+    width: 82%;
+    color: rgb(60,64,67);
+}
+
+.dateMonth{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.tasksAdded{
+    position: relative;
+    cursor: pointer;
+    margin: 3px 0px;
+    width: 93%;
+    border: 1px solid;
+    background: rgb(3, 155, 229);
+    border-color: rgb(3, 155, 229);
+    border-radius: 4px;
+    color: white;
+}
+.tasksAdded2{
+    position: relative;
+    cursor: pointer;
+    margin: 3px 0px;
+    width: 93%;
+    border: 1px solid;
+    background: rgb(11, 128, 67);
+    border-color: rgb(11, 128, 67);
+    border-radius: 4px;
+    color: white;
+}
+
+.tasksAdded p,.tasksAdded2 p{
+    text-align: left;
+    padding: 3px 9px;
+    font-size: 12px;
+}
+
+#popup2{
+    width: 22%;
+    height: 24%;
+    background: white;
+    box-shadow: 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12), 0 11px 15px -7px rgba(0,0,0,.2);
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    z-index: 2;
+    border-radius: 8px;
+}
+#popup2 .icons2{
+    display: flex;
+    justify-content: flex-end;
+    padding: 6px 10px;
+}
+#popup2 .icons2 i{
+    margin: 7px 6px;
+}
+#popup2 .content{
+    height: -webkit-fill-available ;
+}
+
+#popup2 .content h4,
+#popup2 .content h5,
+#popup2 .content p {
+    padding: 10px 30px ;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+}
+#closeTask{
+    cursor: pointer;
+}
+#delete{
+    cursor: pointer;
+}
+#update{
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(31, 30, 30, 0.5); Semi-transparent black overlay */
+    display: none; /* Initially hidden */
+    z-index: 1;
+  }
+  
+
+  /*create button*/
+  .create{
+    display: flex;
+    width: 120px;
+    margin: 13px 10px;
+    padding: 18px 18px;
+    border-radius: 35px ;
+    background: white;
+    box-shadow: 0px 1px 2px 0px rgba(60,64,67,0.3),0px 1px 3px 1px rgba(60,64,67,0.15);
+  }
+  .create button{
+
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: rgb(60,64,67);
+    white-space: nowrap;
+    border: none;
+    width: 100%;  
+    background: none;
+    cursor: pointer;
+  }
+  .create i:first-child{
+    color: rgb(24, 49, 83);
+    font-size: 22px;
+  }
+
+
+  /* popup3 */
+#popup3{
+    width: 22%;
+    height: 24%;
+    background: white;
+    box-shadow: 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12), 0 11px 15px -7px rgba(0,0,0,.2);
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    z-index: 3;
+    border-radius: 8px;
+}
+#popup3 .icons2{
+    display: flex;
+    justify-content: flex-end;
+    padding: 6px 10px;
+}
+#popup3 .icons2 i{
+    cursor: pointer;
+    margin: 7px 6px;
+}
+#popup3 .content{
+    height: -webkit-fill-available ;
+}
+
+#popup3 .content h4,
+#popup3 .content h5,
+#popup3 .content p {
+    padding: 10px 30px ;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+}

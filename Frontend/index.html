@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-----------------Header----------------- -->
+    <div class="header">
+        <div class="heading">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 
+            <h1>Calendar</h1>
+        </div>
+        
+        <div class="icons">
+            <a href="./help.html" target="_blank"><p>Help</p></a>
+            <div style="width: 50px; display: flex; justify-content: space-evenly;">
+                <i class="fas fa-chevron-left navleft"></i>
+                <i class="fas fa-chevron-right navright"></i>
+            </div>
+            <h2 id="monthdays">Month Year</h2>  
+        </div>
+    </div>
+
+    <!-------------Calendar------------ -->
+    <div class="cals">
+
+       <div class="smallcalwrapper">
+            <div class="create" id="createBtn">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                <button >Create</button>
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </div>
+           <div class="smallCal">
+            
+           </div>
+       </div> 
+        <div class="largeCal">
+            
+        </div>
+        
+        <!-- --------------------Popup-------------- -->
+        <div id="popup">
+            <div class="close">
+                <i class="fas fa-times"></i>
+            </div>
+    
+            <div class="addTask">
+                <div class="input">
+                    <label for=""></label>
+                    <input type="text" id="myInput" placeholder="Add title and time">
+                </div>
+                <div class="descrip">
+                    <i class="fas fa-bars"></i>
+                    <textarea name="" id="descrip" cols="30" rows="5" placeholder="Desciption"></textarea>
+                </div>
+            </div>
+            <button id="saveBtn">Save</button>
+        </div>
+
+        <!-- second popup for displaying task details -->
+
+            <div class="popup2" id="popup2">
+                <div class="icons2">
+                    <i id="delete" class="fa fa-trash-o" aria-hidden="true"></i>
+                    <i id="update" class="fa fa-pencil" aria-hidden="true"></i>
+                    <i id="closeTask" class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="content">
+                    <h4 id="title"></h4>
+                    <h5 id="descriptionData"></h5>
+                    <p id="date-month-year"></p>
+                </div>
+            </div>
+
+            <div class="popup3" id="popup3">
+                <div class="icons2">
+                    <i id="closeTask2" class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="content">
+                    <h4 id="titleE"></h4>
+                    <h4 id="dayofevent"></h4>
+                    <h5 id="descriptionDataE"></h5>
+                    <p id="date-month-year-E"></p>
+                </div>
+            </div>
+
+            <div id="popup4">
+                <div class="close" id="closeCreate">
+                    <i class="fas fa-times"></i>
+                </div>
+        
+                <div class="addTask">
+                    <div class="input" >
+                        <label for=""></label>
+                        <input id="createInputval" type="text" id="myInput" placeholder="Add title and time">
+                    </div>
+                    <div class="descrip" >
+                        <i class="fas fa-bars"></i>
+                        <textarea id="createdescri" name="" cols="30" rows="5" placeholder="Desciption"></textarea>
+                    </div>
+                    <div class="dateMonth" id="createdate">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <input type="date" id="createInput">
+                    </div>
+                </div>
+                <button id="createsaveBtn">Save</button>
+            </div>
+
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+    
+    <script src="https://kit.fontawesome.com/5b96ba9c61.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
