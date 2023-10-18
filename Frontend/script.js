@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   console.log(currentYear);
   let tasks = JSON.parse(localStorage.getItem("tasks")) || {};
   let selectedContainerId = null;
-  // let selectedEditContainerId = null;
+  let selectedEditContainerId = null;
+  let selectedTaskId = null;
 
   let holidaysdata = await fetchFromApi(currentYear);
 
@@ -385,31 +386,30 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     });
   }
-
-  let selectedEditContainerId;
   function showTaskDetails(task, element, containerId, index) {
-    if(!containerId)return;
-    console.log("Hii i am containerId" , containerId);
+    console.log("contianerId",containerId,"taskIndex",index);
+    if (!containerId) return;
+    console.log("Hii i am containerId", containerId);
+  
     const title = document.getElementById("title");
     console.log(task.title);
     title.textContent = task.title;
     const descrip = document.getElementById("descriptionData");
-    // console.log(task.description);
     descrip.textContent = task.description;
     const dateMonthYear = document.getElementById("date-month-year");
     dateMonthYear.textContent = containerId;
-
+  
     const popup2 = document.getElementById("popup2");
     popup2.style.display = "flex";
     const overlay = document.getElementById('overlay');
-    overlay.style.display="block";
-
+    overlay.style.display = "block";
+  
     const triggerRect = element.getBoundingClientRect();
     const popupRect = popup2.getBoundingClientRect();
-
+  
     const spaceLeft = triggerRect.left;
     const spaceRight = window.innerWidth - triggerRect.right;
-
+  
     if (spaceRight >= popupRect.width) {
       popup2.style.left = triggerRect.right + "px";
     } else if (spaceLeft >= popupRect.width) {
@@ -417,98 +417,110 @@ document.addEventListener("DOMContentLoaded", async function () {
     } else {
       popup2.style.left = (window.innerWidth - popupRect.width) / 2 + "px";
     }
-
+  
     const top = Math.min(
       triggerRect.bottom,
       window.innerHeight - popupRect.height
     );
     popup2.style.top = top - 170 + "px";
-
+  
     const closeTask = document.getElementById("closeTask");
     closeTask.addEventListener("click", () => {
+      selectedEditContainerId=null;
+      selectedTaskId=null;
       closepopup(element);
     });
-
+    
+    const closeEdit = document.querySelector(".closeEdit");
+    closeEdit.addEventListener("click",()=>{
+      closepopup();
+    })
     const deleteTask = document.getElementById("delete");
+    let deletecount=0;
     deleteTask.addEventListener("click", () => {
-      removeTask(containerId, index, element);
+      deletecount++;
+      removeTask(containerId, index, element,deletecount);
     });
-
-    deleteTask.removeEventListener("click", () => {
-      removeTask(containerId, index, element);
-    });
+  
+  
 
     const update = document.getElementById("update");
+    update.removeEventListener("click", () => updateTask(containerId, index));
     update.addEventListener("click", () => {
-      selectedEditContainerId = containerId;
-      console.log("clicked");
+      updateTask(containerId, index);
+    });
+  
+    function updateTask(contId, idx) {
+      selectedEditContainerId = contId;
+      selectedTaskId = idx;
+      console.log("worst",selectedEditContainerId);
+      console.log("code",selectedTaskId);
+  
       const popup2 = document.getElementById("popup2");
       popup2.style.display = "none";
-
-      const popup = document.getElementById("popup");
-      popup.style.display = "flex";
-
-      let inputdata = document.getElementById("myInput");
+  
+      const popupEdit = document.getElementById("popupEdit");
+      popupEdit.style.display = "flex";
+  
+      let inputdata = document.getElementById("myInputEdit");
       inputdata.value = title.textContent;
       inputdata.select();
-      let description = document.getElementById("descrip");
+      let description = document.getElementById("descripEdit");
       description.value = descrip.textContent;
-
-      const saveBtn = document.getElementById("saveBtn");
-      // saveBtn.removeEventListener("click",()=>saveBtnfun(containerId,index));
-      saveBtn.removeEventListener("click",()=>saveBtnfun(selectedEditContainerId,containerId,index,description,inputdata));
-      saveBtn.addEventListener("click",()=>saveBtnfun(selectedEditContainerId,containerId,index,description,inputdata));
-
-      update.removeEventListener("click", () => {
-        selectedEditContainerId = containerId;
-        console.log("clicked");
-        const popup2 = document.getElementById("popup2");
-        popup2.style.display = "none";
-    
-        const popup = document.getElementById("popup");
-        popup.style.display = "flex";
-    
-        let inputdata = document.getElementById("myInput");
-        inputdata.value = title.textContent;
-        inputdata.select();
-        let description = document.getElementById("descrip");
-        description.value = descrip.textContent;
+  
+      const saveEditBtn = document.getElementById("saveBtnEdit");
+      saveEditBtn.addEventListener("click", () => {
+        saveEditTask(selectedEditContainerId, selectedTaskId);
       });
-
-    });
-  }
-
-  function saveBtnfun(selectedEditContainerId,containerId,taskIndex,description,inputdata){
-    if(!selectedEditContainerId || selectedEditContainerId!==containerId) return;
-    const descriptionInput = description.value;
-    const titleInput = inputdata.value;
-
-
-    if (titleInput === "") return;
-    
-    tasks[containerId][taskIndex]={
-      title:titleInput,
-      description:descriptionInput
+      overlay.style.display="none";
     }
-    
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    inputdata.value="";
-    description.value="";
-    popup.style.display = "none";
-    overlay.style.display="none";
-    populateContainersWithTasks();
-    selectedEditContainerId=null;
+
+    function saveEditTask(selectedEditContainerId, selectedTaskId) {
+
+      if(selectedEditContainerId===null && selectedTaskId===null) return;
+     
+      const updatedTitle = document.getElementById("myInputEdit").value;
+      const updatedDescription = document.getElementById("descripEdit").value;
+      
+      console.log("hii cId",selectedEditContainerId,"hii TId",selectedTaskId)
+
+      if(updatedTitle==="") return;
+
+      if (tasks[selectedEditContainerId]) {
+        tasks[selectedEditContainerId][selectedTaskId] = {
+          title: updatedTitle,
+          description: updatedDescription,
+        };
+  
+        
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        selectedEditContainerId=null;
+        selectedTaskId=null;
+        populateContainersWithTasks();
+      }
+
+      const popup = document.getElementById("popup");
+      popup.style.display = "none";
+      closepopup();
+    }
   }
+  
+  
 
-  function removeTask(containerId, index, container) {
-    if (tasks[containerId]) {
-      tasks[containerId].splice(index, 1);
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-      console.log(tasks);
+  function removeTask(containerId, index, container,deletecount) {
+    console.log("hii iam being called",containerId,index);
+    if(deletecount==1){
 
-      populateContainersWithTasks();
-
-      closepopup(container);
+      if (tasks[containerId]) {
+        tasks[containerId].splice(index, 1);
+        deletecount=0;
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        console.log(tasks);
+  
+        populateContainersWithTasks();
+  
+        closepopup(container);
+      }
     }
   }
 
@@ -518,6 +530,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   function closepopup(containerId) {
     const popup = document.getElementById("popup");
     popup.style.display = "none";
+    const popupEdit = document.getElementById("popupEdit");
+    popupEdit.style.display = "none";
     const popup2 = document.getElementById("popup2");
     popup2.style.display = "none";
     const overlay = document.getElementById('overlay');

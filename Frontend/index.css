@@ -108,7 +108,7 @@ a{
 
 
 /* ------------popup------------- */
-#popup,#popup4{
+#popup,#popup4,#popupEdit{
     display: none;
     position: absolute;
     width: 23%;
@@ -121,7 +121,8 @@ a{
     z-index: 2;
 }
 #popup .addTask input,
-#popup4 .addTask input{
+#popup4 .addTask input,
+#popupEdit .addTaskEdit input{
     width: 90%;
     border: none;
     border-bottom: 1px solid black;
@@ -129,25 +130,26 @@ a{
     font-size: 21px;
 }
 #popup .addTask textarea,
-#popup4 .addTask textarea{
+#popup4 .addTask textarea,
+#popupEdit .addTaskEdit textarea{
     font-size: 21px;
     border: none;
     background-color: rgb(241,243,244);
     outline: none;
     border-radius: 4px;
 }
-.close,.closeCreate{
+.close,.closeCreate,.closeEdit{
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background-color: rgb(241,243,244);
     height: 35px;
 }
-.close i,.closeCreate{
+.close i,.closeCreate i,.closeEdit i{
     cursor: pointer;
     margin-right: 10px ;
 }
-.addTask{
+.addTask,.addTaskEdit{
     padding-top: 20px;
     display: flex;
     height: 80%;
@@ -155,20 +157,25 @@ a{
     align-items: center;
     flex-direction: column;
 }
-.addTask .input,.descrip{
+.addTask .input,.descrip,
+.addTaskEdit .inputEdit .descripEdit{
     padding: 8px 0px;
 }
-.addTask .input{
+.addTask .input,
+.addTaskEdit .inputEdit{
     display: flex;
     justify-content: flex-end;
     width: 70%;
 }
-#myInput:focus{
+#myInput:focus
+,#myInputEdit:focus{
     outline: none;
     border: none;
 }
 #popup button,
-#popup4 button{
+#popup4 button,
+#popupEdit button,
+#popupEdit button{
     position: absolute;
     right: 15px;
     bottom: 10px;
@@ -185,12 +192,13 @@ a{
     transition: 1s ease-in-out;
 }
 
-.descrip{
+.descrip,.descripEdit{
     display: flex;
     width: 70%;
     justify-content: space-between ;
 }
-.descrip textarea{
+.descrip textarea,
+.descripEdit textarea{
     padding: 5px 10px ;
     width: 82%;
     color: rgb(60,64,67);
