@@ -32,26 +32,20 @@ To run the project locally, follow the steps below.
 
 1. Clone the repository to your local machine:
 
-   ```bash
-   git clone <repository_url>
-Navigate to the project directory:
+  --git clone https://github.com/iharshgarg04/Calendar_App
+  --cd calendar_app
+  --cd Server
+    npm install
+  --nodemon server.js
+  --cd Frontend
+  --Open the index.html file with a Live Server extension or manually by opening it in your browser.
 
-bash
-Copy code
-cd calendar_app
+    The calendar Applications should now work properly in your browser
 
-
-bash
-Copy code
-npm install
-Start the development server:
-
-bash
-Copy code
-npm start
 The calendar application should now be accessible in your web browser at http://localhost:3000.
 
-##Usage
+## Usage
+
 Navigating Months:
 
 Use the left and right arrow buttons in the top navigation to move between months.
@@ -73,6 +67,7 @@ Viewing Holiday Events:
 
 Click on a date displaying the holiday event name to view details.
 
-#Configuration
+# Configuration
+
 You can configure the base URL for the holiday data API in the fetchFromApi function in the code.
 
