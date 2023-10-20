@@ -5,82 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar Help</title>
     <link rel="stylesheet" href="styles.css">
-
     <style>
         body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
 
-header {
-    background-color: #3498db;
-    color: #fff;
-    padding: 20px 0;
-}
+        header {
+            text-align: center;
+            background: linear-gradient(45deg, #1e90ff, #4a90e2);
+            color: white;
+            padding: 20px 0;
+        }
 
-h1 {
-    font-size: 36px;
-    margin: 0;
-}
+        h1 {
+            font-size: 48px;
+            margin: 0;
+        }
 
-.container {
-    background-color: #fff;
-    margin: 20px auto;
-    max-width: 800px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
+        .container {
+            background-color: white;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
 
-h2 {
-    font-size: 28px;
-    margin-top: 20px;
-    color: #3498db;
-}
+        h2 {
+            font-size: 36px;
+            margin-top: 20px;
+            color: #1e90ff;
+        }
 
-h3 {
-    font-size: 24px;
-    margin-top: 15px;
-    color: #3498db;
-}
+        h3 {
+            font-size: 28px;
+            margin-top: 15px;
+            color: #1e90ff;
+        }
 
-p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: #333;
-}
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #333;
+        }
 
-.container p:last-child {
-    margin-bottom: 0;
-}
+        .container p:last-child {
+            margin-bottom: 0;
+        }
 
+        .container div {
+            margin-bottom: 30px;
+        }
+
+        /* Styling for Key Features section */
+        .key-features {
+            border-top: 2px solid #1e90ff;
+            padding-top: 20px;
+        }
+
+        .key-feature {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .key-feature h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .key-feature p {
+            margin: 0;
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Styling for Contact section */
+        .contact {
+            border-top: 2px solid #1e90ff;
+            padding-top: 20px;
+        }
+
+        .contact p {
+            font-size: 20px;
+            margin: 0;
+            color: #333;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Calendar Help</h1>
+        <h1>📅 Calendar Help</h1>
     </header>
     <main>
         <section class="container">
-            <h2>Introduction to the Calendar</h2>
-            <p>The calendar is a powerful tool to help you organize your time and keep track of important events, tasks, and appointments. It provides a visual representation of dates, typically organized by months, which allows you to plan and manage your schedule effectively.</p>
+            <div>
+                <h2>Welcome to the Calendar</h2>
+                <p>
+                    Experience the magic of time management and event tracking with our elegant calendar. It's your key to efficient scheduling and seamless planning.
+                </p>
+            </div>
 
-            <h2>Key Features</h2>
-            <h3>Navigating the Calendar</h3>
-            <p>Change months and return to today with easy-to-use navigation buttons.</p>
+            <div class="key-features">
+                <h2>✨ Key Features</h2>
+                <div class="key-feature">
+                    <h3>Navigating the Calendar</h3>
+                    <p>
+                        Explore the calendar effortlessly with intuitive navigation controls.
+                    </p>
+                </div>
 
-            <h3>Viewing Dates</h3>
-            <p>Quickly identify days of the week, the current month, and year for seamless planning.</p>
+                <div class="key-feature">
+                    <h3>Viewing Dates</h3>
+                    <p>
+                        Instantly grasp the days of the week, the current month, and year for a smooth planning experience.
+                    </p>
+                </div>
 
-            <h3>Adding Events and Tasks</h3>
-            <p>Add events and tasks with a single click. Edit or view existing events and tasks by clicking on a date.</p>
+                <div class="key-feature">
+                    <h3>Adding Events and Tasks</h3>
+                    <p>
+                        Easily create and manage events and tasks with just a few clicks. Edit or view your appointments effortlessly.
+                    </p>
+                </div>
+            </div>
 
-            <h2>Need Further Assistance?</h2>
-            <p>If you have any questions or require additional help, please don't hesitate to contact our support team. We are here to assist you in making the most of your calendar.</p>
+            <div class="contact">
+                <h2>🌟 Need Further Assistance?</h2>
+                <p>
+                    We're here to make your calendar journey extraordinary. If you have any questions or need assistance, don't hesitate to reach out to our stellar support team. Your success is our priority!
+                </p>
+            </div>
         </section>
     </main>
 </body>

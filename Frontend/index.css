@@ -360,3 +360,40 @@ a{
     font-size: 17px;
     letter-spacing: 1.5px;
 }
+
+.headerCreate{
+    display: none;
+}
+
+
+@media screen and (max-width:980px) {
+    .smallcalwrapper{
+        display: none;
+    }
+    .largeCal{
+        width: 100vw;
+    }
+    .headerCreate{
+        margin: 0px;
+        align-items: center;
+        padding: 13px 14px;
+        display: flex;
+        width: 92px;
+        background: rgb(24, 49, 83);
+        color: white;
+    }
+    .headerCreate button{
+        color: white;
+        font-size: 16px;
+    }
+    .icons{
+        width: 400px;
+    }
+    .headerCreate i:first-child{
+        font-size: 15px;
+        color: white;
+    }
+    #popup4{
+        width: 40%;
+    }
+}
