@@ -36,13 +36,11 @@ To run the project locally, follow the steps below.
 - cd calendar_app.
 - cd Server.
 - npm install.
--nodemon server.js.
--cd Frontend.
--Open the index.html file with a Live Server extension or manually by opening it in your browser.
+- nodemon server.js.
+- cd Frontend.
+- Open the index.html file with a Live Server extension or manually by opening it in your browser.
 
-    The calendar Applications should now work properly in your browser
-
-The calendar application should now be accessible in your web browser at http://localhost:3000.
+The calendar Applications should now work properly in your browser
 
 ## Usage
 
