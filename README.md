@@ -32,13 +32,13 @@ To run the project locally, follow the steps below.
 
 1. Clone the repository to your local machine:
 
-  --git clone https://github.com/iharshgarg04/Calendar_App.
-  --cd calendar_app.
-  --cd Server.
-    npm install.
-  --nodemon server.js.
-  --cd Frontend.
-  --Open the index.html file with a Live Server extension or manually by opening it in your browser.
+- git clone https://github.com/iharshgarg04/Calendar_App.
+- cd calendar_app.
+- cd Server.
+- npm install.
+-nodemon server.js.
+-cd Frontend.
+-Open the index.html file with a Live Server extension or manually by opening it in your browser.
 
     The calendar Applications should now work properly in your browser
 
